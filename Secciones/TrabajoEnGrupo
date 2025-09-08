@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo en Equipo - Manual de Buenas Prácticas</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #8e44ad;
+        }
+        
+        /* Contenido principal */
+        main {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #e67e22;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f39c12;
+        }
+        
+        h2 {
+            color: #e67e22;
+            margin: 25px 0 15px;
+        }
+        
+        h3 {
+            color: #f39c12;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Citas y referencias */
+        .quote {
+            background: #f9f9f9;
+            border-left: 4px solid #f39c12;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .reference {
+            padding-left: 30px;
+            text-indent: -30px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #e67e22;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* Tarjetas de información */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            background: #fef9e7;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+        
+        /* Figura */
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        
+        .caption {
+            font-style: italic;
+            margin-top: 8px;
+            color: #666;
+        }
+        
+        /* Comparación */
+        .comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .comparison-item {
+            flex: 1 1 45%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        
+        /* Buenas vs Malas prácticas */
+        .good-practice {
+            border-left: 4px solid #27ae60;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        .bad-practice {
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        /* Iconos */
+        .icon-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .icon-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .icon-list .icon {
+            font-size: 24px;
+            margin-right: 15px;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        /* Herramientas */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .tool-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card h4 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+        
+        /* Pie de página */
+        footer {
+            background: #e67e22;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-nav {
+            margin: 15px 0;
+        }
+        
+        .footer-nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .comparison {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Manual de Buenas Prácticas</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="control-versiones.html">Control de Versiones</a></li>
+                    <li><a href="metodologias-agiles.html">Metodologías Ágiles</a></li>
+                    <li><a href="documentacion-codigo.html">Documentación</a></li>
+                    <li><a href="testing.html">Testing</a></li>
+                    <li><a href="trabajo-en-equipo.html">Trabajo en Equipo</a></li>
+                    <li><a href="recursos-adicionales.html">Recursos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h1>Trabajo en Equipo: Comunicación y Colaboración</h1>
+            
+            <p>El trabajo en equipo efectivo es fundamental para el éxito de cualquier proyecto de desarrollo de software. Esta sección cubre las mejores prácticas para la comunicación, colaboración y resolución de conflictos en equipos de desarrollo.</p>
+            
+            <div class="quote">
+                "El talento gana partidos, pero el trabajo en equipo y la inteligencia ganan campeonatos." - Michael Jordan
+            </div>
+            
+            <h2>Importancia del Trabajo en Equipo</h2>
+            <p>En el desarrollo de software moderno, el trabajo en equipo no es opcional, es esencial. Los beneficios incluyen:</p>
+            <ul>
+                <li>Mayor productividad y eficiencia</li>
+                <li>Mejor calidad del software mediante revisiones cruzadas</li>
+                <li>Distribución equitativa de la carga de trabajo</li>
+                <li>Mayor innovación a través de la diversidad de pensamiento</li>
+                <li>Desarrollo profesional y aprendizaje continuo</li>
+                <li>Resiliencia ante ausencias o cambios en el equipo</li>
+            </ul>
+            
+            <h2>Comunicación Efectiva</h2>
+            <p>La comunicación es la base de la colaboración exitosa. Estos son los principios clave:</p>
+            
+            <h3>Principios de Comunicación en Equipos de Desarrollo</h3>
+            <ul class="icon-list">
+                <li>
+                    <div class="icon">📋</div>
+                    <div>
+                        <strong>Claridad y precisión</strong>: Ser específico en las comunicaciones técnicas, evitando ambigüedades.
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">🔄</div>
+                    <div>
+                        <strong>Comunicación bidireccional</strong>: Fomentar la retroalimentación y asegurar la comprensión mutua.
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">⏰</div>
+                    <div>
+                        <strong>Oportunidad</strong>: Compartir información relevante en el momento adecuado.
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">📊</div>
+                    <div>
+                        <strong>Canal apropiado</strong>: Usar el medio correcto para cada tipo de comunicación (email, chat, videollamada).
+                    </div>
+                </li>
+                <li>
+                    <div class="icon">👂</div>
+                    <div>
+                        <strong>Escucha activa</strong>: Prestar atención completa y demostrar comprensión.
+                    </div>
+                </li>
+            </ul>
+            
+            <h3>Comunicación en Equipos Remotos</h3>
+            <p>Con el aumento del trabajo remoto, la comunicación efectiva se ha vuelto aún más crucial:</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Comunicación Síncrona</h3>
+                    <p>Reuniones en tiempo real como videollamadas diarias (stand-ups), pair programming y revisiones de código en vivo.</p>
+                </div>
+                <div class="card">
+                    <h3>Comunicación Asíncrona</h3>
+                    <p>Comunicación que no requiere respuesta inmediata: emails, documentación, comentarios en PRs, y mensajes en canales de chat.</p>
+                </div>
+                <div class="card">
+                    <h3>Documentación</h3>
+                    <p>Mantener documentación actualizada que permita a los miembros del equipo acceder a información crucial en cualquier momento.</p>
+                </div>
+            </div>
+            
+            <h2>Herramientas de Colaboración</h2>
+            <p>Las herramientas adecuadas son esenciales para facilitar la colaboración efectiva:</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4>GitHub/GitLab</h4>
+                    <p>Gestión de código, revisiones, issues y documentación.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Slack/Microsoft Teams</h4>
+                    <p>Comunicación en tiempo real y organización por canales temáticos.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Jira/Trello</h4>
+                    <p>Gestión de proyectos y seguimiento de tareas.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Google Docs/Notion</h4>
+                    <p>Documentación colaborativa en tiempo real.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Figma/Miro</h4>
+                    <p>Diseño colaborativo y lluvias de ideas.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Zoom/Meet</h4>
+                    <p>Videoconferencias para reuniones y pair programming.</p>
+                </div>
+            </div>
+            
+            <h2>Resolución de Conflictos</h2>
+            <p>Los conflictos son naturales en equipos diversos. La clave es manejarlos constructivamente:</p>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h4>Enfoque Constructivo</h4>
+                    <ul>
+                        <li>Enfocarse en el problema, no en las personas</li>
+                        <li>Escuchar todas las perspectivas</li>
+                        <li>Buscar soluciones de beneficio mutuo</li>
+                        <li>Mantener el respeto profesional</li>
+                        <li>Documentar acuerdos y decisiones</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <h4>Qué Evitar</h4>
+                    <ul>
+                        <li>Criticar personalmente</li>
+                        <li>Asumir malas intenciones</li>
+                        <li>Ignorar el conflicto esperando que desaparezca</li>
+                        <li>Tomar partido prematuramente</li>
+                        <li>Involucrar a personas no relevantes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Roles y Responsabilidades</h2>
+            <p>La claridad en los roles y responsabilidades es crucial para evitar duplicaciones y omisiones:</p>
+            
+            <table>
+                <tr>
+                    <th>Rol</th>
+                    <th>Responsabilidades Principales</th>
+                    <th>Habilidades Clave</th>
+                </tr>
+                <tr>
+                    <td>Líder Técnico</td>
+                    <td>Guía técnica, toma decisiones arquitectónicas, mentoría</td>
+                    <td>Conocimiento técnico profundo, liderazgo, visión</td>
+                </tr>
+                <tr>
+                    <td>Desarrollador Senior</td>
+                    <td>Desarrollo de funcionalidades complejas, revisión de código</td>
+                    <td>Experiencia técnica, pensamiento crítico, comunicación</td>
+                </tr>
+                <tr>
+                    <td>Desarrollador Junior</td>
+                    <td>Implementación de funcionalidades, aprendizaje continuo</td>
+                    <td>Aprendizaje rápido, adaptabilidad, curiosidad</td>
+                </tr>
+                <tr>
+                    <td>QA/Tester</td>
+                    <td>Garantizar calidad, reportar bugs, automatizar pruebas</td>
+                    <td>Atención al detalle, pensamiento crítico, paciencia</td>
+                </tr>
+            </table>
+            
+            <h2>Reuniones Efectivas</h2>
+            <p>Las reuniones mal gestionadas son una de las mayores pérdidas de tiempo en equipos de desarrollo:</p>
+            
+            <div class="good-practice">
+                <h3>✅ Reuniones efectivas</h3>
+                <ul>
+                    <li>Tener una agenda clara compartida con anticipación</li>
+                    <li>Invitar solo a las personas necesarias</li>
+                    <li>Comenzar y terminar a tiempo</li>
+                    <li>Designar un facilitador y un tomador de notas</li>
+                    <li>Definir acciones concretas y responsables</li>
+                </ul>
+            </div>
+            
+            <div class="bad-practice">
+                <h3>❌ Reuniones inefectivas</h3>
+                <ul>
+                    <li>Sin agenda o propósito claro</li>
+                    <li>Participantes que no necesitan estar presentes</li>
+                    <li>Permitir divagaciones fuera de tema</li>
+                    <li>No documentar acuerdos ni acciones</li>
+                    <li>Extender el tiempo planeado sin necesidad</li>
+                </ul>
+            </div>
+            
+            <h2>Retrospectivas y Mejora Continua</h2>
+            <p>Las retrospectivas regulares son esenciales para la mejora continua del equipo:</p>
+            
+            <ol>
+                <li><strong>Preparación</strong>: Definir el formato y recoger datos relevantes</li>
+                <li><strong>Ejecución</strong>: Crear un espacio seguro para compartir perspectivas</li>
+                <li><strong>Análisis</strong>: Identificar patrones y causas raíz</li>
+                <li><strong>Planificación</strong>: Definir acciones concretas de mejora</li>
+                <li><strong>Seguimiento</strong>: Revisar el progreso de acciones anteriores</li>
+            </ol>
+            
+            <h2>Referencias</h2>
+            <div class="reference">Lencioni, P. (2002). The Five Dysfunctions of a Team: A Leadership Fable. Jossey-Bass.</div>
+            <div class="reference">Beck, K. (2000). Extreme Programming Explained: Embrace Change. Addison-Wesley.</div>
+            <div class="reference">Grenning, J. (2002). Planning Poker. Renaissance Software Consulting.</div>
+            <div class="reference">Kerth, N. L. (2001). Project Retrospectives: A Handbook for Team Reviews. Dorset House Publishing.</div>
+            <div class="reference">Coyle, D. (2018). The Culture Code: The Secrets of Highly Successful Groups. Bantam Books.</div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2025 - Equipo de Desarrollo de Software V - Universidad Tecnológica de Panamá</p>
+            <div class="footer-nav">
+                <a href="../index.html">Inicio</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="recursos-adicionales.html">Recursos Adicionales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

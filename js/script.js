@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     links.forEach(link => {
         link.addEventListener("click", e => {
             e.preventDefault();
-            const url = link.getAttribute("href");
+            const url = link.getAttribute("data-file");
             loadSection(url);
         });
     });

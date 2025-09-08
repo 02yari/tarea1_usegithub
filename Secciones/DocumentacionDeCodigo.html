@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación de Código - Manual de Buenas Prácticas</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+        
+        /* Contenido principal */
+        main {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #8e44ad;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #9b59b6;
+        }
+        
+        h2 {
+            color: #8e44ad;
+            margin: 25px 0 15px;
+        }
+        
+        h3 {
+            color: #9b59b6;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Citas y referencias */
+        .quote {
+            background: #f9f9f9;
+            border-left: 4px solid #9b59b6;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .reference {
+            padding-left: 30px;
+            text-indent: -30px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #8e44ad;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* Tarjetas de información */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: #8e44ad;
+            margin-top: 0;
+        }
+        
+        /* Código */
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.4;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            background: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .code-comment {
+            color: #7f8c8d;
+        }
+        
+        .code-keyword {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .code-function {
+            color: #3498db;
+        }
+        
+        .code-string {
+            color: #f1c40f;
+        }
+        
+        /* Figura */
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        
+        .caption {
+            font-style: italic;
+            margin-top: 8px;
+            color: #666;
+        }
+        
+        /* Comparación */
+        .comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .comparison-item {
+            flex: 1 1 45%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        
+        /* Buenas vs Malas prácticas */
+        .good-practice {
+            border-left: 4px solid #27ae60;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        .bad-practice {
+            border-left: 4px solid #e74c3c;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        /* Pie de página */
+        footer {
+            background: #8e44ad;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-nav {
+            margin: 15px 0;
+        }
+        
+        .footer-nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .comparison {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Manual de Buenas Prácticas</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="control-versiones.html">Control de Versiones</a></li>
+                    <li><a href="metodologias-agiles.html">Metodologías Ágiles</a></li>
+                    <li><a href="documentacion-codigo.html">Documentación</a></li>
+                    <li><a href="testing.html">Testing</a></li>
+                    <li><a href="trabajo-en-equipo.html">Trabajo en Equipo</a></li>
+                    <li><a href="recursos-adicionales.html">Recursos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h1>Documentación de Código: Comentarios y README</h1>
+            
+            <p>La documentación de código es una parte esencial del desarrollo de software que facilita el mantenimiento, la colaboración y la escalabilidad de los proyectos. Esta sección cubre las mejores prácticas para comentar código y crear documentación efectiva con archivos README.</p>
+            
+            <div class="quote">
+                "El código se escribe para que lo entiendan los humanos, no las máquinas. La documentación es el puente entre la intención del desarrollador y la comprensión del lector." - Robert C. Martin
+            </div>
+            
+            <h2>Importancia de la Documentación</h2>
+            <p>La documentación adecuada ofrece múltiples beneficios para los equipos de desarrollo:</p>
+            <ul>
+                <li>Facilita el onboarding de nuevos desarrolladores</li>
+                <li>Permite el mantenimiento a largo plazo del código</li>
+                <li>Ayuda a entender el propósito y funcionamiento del código</li>
+                <li>Reduce el tiempo necesario para entender código existente</li>
+                <li>Mejora la colaboración entre miembros del equipo</li>
+            </ul>
+            
+            <h2>Comentarios en el Código</h2>
+            <p>Los comentarios son anotaciones en el código fuente que explican el propósito, funcionamiento o detalles de implementación. Existen diferentes tipos de comentarios según su propósito:</p>
+            
+            <h3>Comentarios de Documentación</h3>
+            <p>Explican qué hace una función, método o clase, sus parámetros y valores de retorno.</p>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h4>Buen ejemplo</h4>
+                    <pre>
+/**
+ * Calcula el área de un círculo dado su radio
+ * @param {number} radio - El radio del círculo
+ * @returns {number} El área del círculo
+ */
+function calcularAreaCirculo(radio) {
+  return Math.PI * radio * radio;
+}
+                    </pre>
+                </div>
+                <div class="comparison-item">
+                    <h4>Mal ejemplo</h4>
+                    <pre>
+// Función para calcular algo
+function calc(rad) {
+  return 3.14 * rad * rad; // fórmula mágica
+}
+                    </pre>
+                </div>
+            </div>
+            
+            <h3>Comentarios de Implementación</h3>
+            <p>Explican cómo funciona una parte específica del código, especialmente cuando la implementación no es obvia.</p>
+            
+            <pre>
+// Usamos el algoritmo de Dijkstra para encontrar la ruta más corta
+// porque es más eficiente para grafos con pesos positivos
+function encontrarRutaMasCorta(grafo, inicio, fin) {
+  // Implementación del algoritmo...
+}
+            </pre>
+            
+            <h3>Comentarios de TODO y FIXME</h3>
+            <p>Marcan áreas que necesitan trabajo futuro o corrección.</p>
+            
+            <pre>
+// TODO: Optimizar esta función para grandes volúmenes de datos
+function procesarDatos(datos) {
+  // Implementación actual
+}
+
+// FIXME: Este método falla con valores negativos
+function calcularRaizCuadrada(numero) {
+  return Math.sqrt(numero);
+}
+            </pre>
+            
+            <h2>Archivos README</h2>
+            <p>El archivo README es la puerta de entrada a cualquier proyecto. Debe proporcionar información esencial para entender, usar y contribuir al proyecto.</p>
+            
+            <h3>Estructura Recomendada para README.md</h3>
+            <ol>
+                <li><strong>Título y descripción</strong>: Nombre del proyecto y breve descripción</li>
+                <li><strong>Características</strong>: Lista de funcionalidades principales</li>
+                <li><strong>Instalación</strong>: Guía paso a paso para instalar el proyecto</li>
+                <li><strong>Uso</strong>: Ejemplos de cómo usar el proyecto</li>
+                <li><strong>Configuración</strong>: Variables de entorno y configuración</li>
+                <li><strong>Contribución</strong>: Guía para contribuir al proyecto</li>
+                <li><strong>Licencia</strong>: Información sobre la licencia</li>
+            </ol>
+            
+            <h3>Ejemplo de README efectivo</h3>
+            <pre>
+# Nombre del Proyecto
+
+Breve descripción del proyecto y su propósito.
+
+## Características
+
+- Lista de características principales
+- Otra característica importante
+
+## Instalación
+
+1. Clona el repositorio: `git clone https://github.com/usuario/proyecto.git`
+2. Instala dependencias: `npm install`
+3. Configura variables de entorno: `cp .env.example .env`
+4. Inicia la aplicación: `npm start`
+
+## Uso
+
+Ejemplos de código mostrando cómo usar el proyecto:
+
+```javascript
+const miProyecto = require('mi-proyecto');
+const resultado = miProyecto.ejecutar(parametro);
+
+
+        <h2>Herramientas de Documentación</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>JSDoc</h3>
+                <p>Genera documentación automática a partir de comentarios en JavaScript.</p>
+            </div>
+            <div class="card">
+                <h3>Swagger/OpenAPI</h3>
+                <p>Documentación para APIs RESTful con interfaz interactiva.</p>
+            </div>
+            <div class="card">
+                <h3>Docusaurus</h3>
+                <p>Generador de sitios de documentación optimizados para proyectos open source.</p>
+            </div>
+        </div>
+        
+        <h2>Buenas Prácticas para Documentación</h2>
+        
+        <div class="good-practice">
+            <h3>✅ Documenta el "porqué", no el "qué"</h3>
+            <p>El código ya muestra lo que hace. Los comentarios deben explicar por qué se tomó una decisión particular.</p>
+        </div>
+        
+        <div class="bad-practice">
+            <h3>❌ Evita comentarios obvios</h3>
+            <p>No documentes lo que el código hace de manera evidente. Esto añade ruido sin valor.</p>
+        </div>
+        
+        <div class="good-practice">
+            <h3>✅ Mantén la documentación actualizada</h3>
+            <p>La documentación desactualizada es peor que ninguna documentación. Actualízala con cada cambio relevante.</p>
+        </div>
+        
+        <div class="bad-practice">
+            <h3>❌ No uses comentarios para código muerto</h3>
+            <p>Elimina el código que ya no se usa en lugar de comentarlo. El control de versiones ya guarda el historial.</p>
+        </div>
+        
+        <h2>Referencias</h2>
+        <div class="reference">Martin, R. C. (2008). Clean Code: A Handbook of Agile Software Craftsmanship. Prentice Hall.</div>
+        <div class="reference">Spinellis, D. (2003). Code Documentation. IEEE Software, 20(6), 18-19.</div>
+        <div class="reference">Parnas, D. L. (2011). Really Rethinking Formal Methods. Computer, 44(4), 28-34.</div>
+        <div class="reference">Stevens, W. P., Myers, G. J., & Constantine, L. L. (1974). Structured Design. IBM Systems Journal, 13(2), 115-139.</div>
+        <div class="reference">Oracle. (2022). How to Write Doc Comments for the Javadoc Tool. Recuperado de https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html</div>
+    </main>
+</div>
+
+<footer>
+    <div class="container footer-content">
+        <p>© 2025 - Equipo de Desarrollo de Software V - Universidad Tecnológica de Panamá</p>
+        <div class="footer-nav">
+            <a href="../index.html">Inicio</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Uso</a>
+            <a href="recursos-adicionales.html">Recursos Adicionales</a>
+        </div>
+    </div>
+</footer>

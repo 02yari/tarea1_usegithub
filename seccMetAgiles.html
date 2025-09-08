@@ -4,33 +4,6 @@
     <meta charset="UTF-8">
     <title>Control de Versiones - Manual Digital</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .agile-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-top: 20px;
-        }
-
-        .agile-card {
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        flex: 1 1 45%; /* Ajusta el ancho, máximo 45% */
-        min-width: 250px;
-        }
-
-        .agile-card h3 {
-        color: #3498db;
-        margin-bottom: 10px;
-        }
-
-        .agile-card p {
-        margin-bottom: 8px;
-        }
-
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -43,29 +16,37 @@
         <nav class="sidebar">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                
+                <li><a href="controlVersiones.html">Control de Versiones</a></li>
+                <li><a href="BuenasPracticas.html">Buenas Prácticas</a></li>
+                <li><a href="trabajoEnGrupo.html">Trabajo en Equipo</a></li>
+                <li><a href="recursos-adicionales.html">Recursos Adicionales</a></li>
                
             </ul>
         </nav>
 
         <!-- Contenido principal -->
         <main class="content">
-            <h2>Metologiá Ágiles</h2>
-            <p>Las metodologías ágiles son un enfoque flexible para la gestión de proyectos de software que busca entregar valor rápido y adaptarse a los cambios</p>
+            <h2>Metodologías Ágiles</h2>
+            <p>Las metodologías ágiles son un enfoque flexible para la gestión de proyectos de software que busca entregar valor rápido y adaptarse a los cambios.</p>
 
-            <h3>Scrum</h3>
-            <ul>
-                 <li><strong>Descripción:</strong> Scrum organiza el desarrollo en ciclos cortos llamados <em>sprints</em>.</li>
-                 <li><strong>Roles:</strong> Product Owner, Scrum Master, Equipo de Desarrollo.</li>
-                 <li><strong>Eventos:</strong> Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective.</li>
-            </ul>
+            <div class="agile-container">
+                <!-- Scrum -->
+                <div class="agile-card">
+                    <h3>Scrum</h3>
+                    <p><strong>Descripción:</strong> Scrum organiza el desarrollo en ciclos cortos llamados sprints.</p>
+                    <p><strong>Roles:</strong> Product Owner, Scrum Master, Equipo de Desarrollo.</p>
+                    <p><strong>Eventos:</strong> Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective.</p>
+                </div>
 
-            <h3>Kanban</h3>
-             <ul>
-                 <li><strong>Descripción:</strong> Kanban usa un tablero visual para gestionar el flujo de trabajo.</li>
-                 <li><strong>Principios:</strong> Visualizar el flujo, limitar el trabajo en curso, mejorar continuamente.</li>
-                 <li><strong>Ventajas:</strong> Identifica cuellos de botella y optimiza el flujo de tareas.</li>
-             </ul>
+                <!-- Kanban -->
+                <div class="agile-card">
+                    <h3>Kanban</h3>
+                    <p><strong>Descripción:</strong> Kanban usa un tablero visual para gestionar el flujo de trabajo.</p>
+                    <p><strong>Principios:</strong> Visualizar el flujo, limitar el trabajo en curso, mejorar continuamente.</p>
+                    <p><strong>Ventajas:</strong> Identifica cuellos de botella y optimiza el flujo de tareas.</p>
+                </div>
+            </div>
+
         </main>
     </div>
 </body>

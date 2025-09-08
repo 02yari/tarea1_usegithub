@@ -1,0 +1,346 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Versiones - Manual de Buenas Prácticas</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+        
+        /* Contenido principal */
+        main {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h2 {
+            color: #2980b9;
+            margin: 25px 0 15px;
+        }
+        
+        h3 {
+            color: #3498db;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Citas y referencias */
+        .quote {
+            background: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .reference {
+            padding-left: 30px;
+            text-indent: -30px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* Código */
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* Figura */
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        
+        .caption {
+            font-style: italic;
+            margin-top: 8px;
+            color: #666;
+        }
+        
+        /* Pie de página */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-nav {
+            margin: 15px 0;
+        }
+        
+        .footer-nav a {
+            color: #3498db;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Manual de Buenas Prácticas</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="control-versiones.html">Control de Versiones</a></li>
+                    <li><a href="metodologias-agiles.html">Metodologías Ágiles</a></li>
+                    <li><a href="documentacion-codigo.html">Documentación</a></li>
+                    <li><a href="testing.html">Testing</a></li>
+                    <li><a href="trabajo-en-equipo.html">Trabajo en Equipo</a></li>
+                    <li><a href="recursos-adicionales.html">Recursos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h1>Control de Versiones: Mejores Prácticas con Git</h1>
+            
+            <p>El control de versiones es un sistema que registra los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo, de modo que puedas recuperar versiones específicas más adelante. Esta sección presenta las mejores prácticas para utilizar Git, el sistema de control de versiones distribuido más popular.</p>
+            
+            <h2>Introducción a Git</h2>
+            <p>Git es un sistema de control de versiones distribuido de código abierto diseñado para manejar todo, desde proyectos pequeños hasta muy grandes, con velocidad y eficiencia. Creado por Linus Torvalds en 2005 para el desarrollo del kernel de Linux, Git se ha convertido en el estándar de facto para el control de versiones en el desarrollo de software.</p>
+            
+            <div class="quote">
+                "El control de versiones es para los desarrolladores lo que la línea de tiempo es para los editores de video." - Desconocido
+            </div>
+            
+            <h2>Flujo de Trabajo Básico con Git</h2>
+            <p>El flujo de trabajo básico en Git consiste en:</p>
+            <ol>
+                <li>Modificar archivos en tu directorio de trabajo</li>
+                <li>Preparar los archivos, añadiendo instantáneas de ellos a tu área de preparación</li>
+                <li>Confirmar los cambios, lo que toma los archivos tal y como están en el área de preparación y almacena esa instantánea de manera permanente en tu directorio de Git</li>
+            </ol>
+            
+            <div class="figure">
+                <img src="https://via.placeholder.com/800x400?text=Diagrama+Flujo+de+Trabajo+Git" alt="Diagrama de flujo de trabajo básico con Git">
+                <div class="caption">Figura 1. Flujo de trabajo básico en Git (Chacon & Straub, 2014)</div>
+            </div>
+            
+            <h2>Mejores Prácticas con Git</h2>
+            
+            <h3>1. Commits Atómicos</h3>
+            <p>Realiza commits que capturen un único cambio lógico. Esto facilita la revisión del código, la localización de errores y la reversión de cambios específicos si es necesario.</p>
+            <pre><code># Ejemplo de commit atómico
+git add archivo-modificado.js
+git commit -m "feat: agregar validación de formulario de contacto"</code></pre>
+            
+            <h3>2. Mensajes de Commit Claros y Descriptivos</h3>
+            <p>Utiliza mensajes de commit que expliquen qué cambió y por qué. Sigue el convenio de commits convencionales:</p>
+            <ul>
+                <li><strong>feat</strong>: Una nueva característica</li>
+                <li><strong>fix</strong>: Corrección de un error</li>
+                <li><strong>docs</strong>: Cambios en la documentación</li>
+                <li><strong>style</strong>: Cambios de formato, etc.</li>
+                <li><strong>refactor</strong>: Refactorización de código</li>
+                <li><strong>test</strong>: Adición de pruebas</li>
+            </ul>
+            
+            <h3>3. Ramificación Estratégica</h3>
+            <p>Utiliza ramas para aislar el desarrollo de nuevas características. Algunas estrategias populares incluyen:</p>
+            <table>
+                <tr>
+                    <th>Estrategia</th>
+                    <th>Descripción</th>
+                    <th>Cuándo usarla</th>
+                </tr>
+                <tr>
+                    <td>Git Flow</td>
+                    <td>Utiliza ramas principales, de desarrollo y de características</td>
+                    <td>Proyectos con ciclos de lanzamiento predecibles</td>
+                </tr>
+                <tr>
+                    <td>GitHub Flow</td>
+                    <td>Flujo simple basado en ramas de características y deployos frecuentes</td>
+                    <td>Proyectos con deployos continuos</td>
+                </tr>
+                <tr>
+                    <td>Trunk-Based Development</td>
+                    <td>Los desarrolladores trabajan en pequeñas tareas y se integran frecuentemente</td>
+                    <td>Equipos maduros con alta disciplina</td>
+                </tr>
+            </table>
+            
+            <h3>4. Resolución de Conflictos</h3>
+            <p>Los conflictos de fusión son inevitables en el desarrollo colaborativo. Para resolverlos:</p>
+            <ol>
+                <li>Actualiza tu rama local con los últimos cambios de la rama principal</li>
+                <li>Identifica los archivos con conflictos</li>
+                <li>Revisa cuidadosamente los cambios en conflicto</li>
+                <li>Resuelve manualmente los conflictos, preservando la funcionalidad necesaria</li>
+                <li>Verifica que la solución no rompa el código existente</li>
+            </ol>
+            
+            <h2>Referencias</h2>
+            <div class="reference">Chacon, S., & Straub, B. (2014). Pro Git (2ª ed.). Apress.</div>
+            <div class="reference">Loeliger, J., & McCullough, M. (2012). Version Control with Git (2ª ed.). O'Reilly Media.</div>
+            <div class="reference">Preston-Werner, T. (2011). Semantic Versioning. Recuperado de https://semver.org</div>
+            <div class="reference">Driessen, V. (2010). A successful Git branching model. Recuperado de https://nvie.com/posts/a-successful-git-branching-model/</div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2025 - Equipo de Desarrollo de Software V - Universidad Tecnológica de Panamá</p>
+            <div class="footer-nav">
+                <a href="../index.html">Inicio</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="recursos-adicionales.html">Recursos Adicionales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

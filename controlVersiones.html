@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Control de Versiones - Manual Digital</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -32,18 +33,95 @@
             color: #3498db;
         }
 
+        /* Nuevos estilos para el contenido adicional */
+        .command-card {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .command-card code {
+            background-color: #e9ecef;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .workflow-section {
+            margin: 30px 0;
+        }
+        
+        .best-practice {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #f2f2f2;
+        }
+        
+        .code-example {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .branch-visual {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .branch-line {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px;
+        }
+        
+        .branch-node {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #3498db;
+            margin: 5px 0;
+        }
+        
+        .branch-label {
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
     </style>
-
 </head>
 <body>
     <!-- Header -->
     <header>
         <h1>Manual Digital de Buenas Prácticas</h1>
+        <p class="tagline">Domina el control de versiones con Git y mejora tu flujo de trabajo</p>
     </header>
 
     <div class="container">
         <!-- Barra lateral -->
-         <nav class="sidebar">
+        <nav class="sidebar">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="controlVersiones.html">Control de Versiones</a></li>
@@ -58,30 +136,234 @@
 
         <main class="content">
             <!-- Título de la sección -->
-             <h2>Control de Versiones en Git</h2>
-             <p>Aprende las mejores prácticas para usar Git y mantener tu código organizado.</p>
+            <h2>Control de Versiones en Git</h2>
+            <p>Aprende las mejores prácticas para usar Git y mantener tu código organizado.</p>
+            
+            <!-- Introducción -->
+            <section>
+                <h3>¿Qué es el Control de Versiones?</h3>
+                <p>Un sistema de control de versiones es una herramienta que ayuda a equipos de desarrollo a gestionar cambios en el código a lo largo del tiempo. Git es el sistema de control de versiones distribuido más popular que permite:</p>
+                <ul>
+                    <li>Rastrear todos los cambios en el código</li>
+                    <li>Trabajar en equipo de manera coordinada</li>
+                    <li>Revertir a versiones anteriores cuando sea necesario</li>
+                    <li>Experimentar con nuevas ideas sin afectar el código principal</li>
+                </ul>
+            </section>
 
             <!-- Contenedores con 4 menús -->
             <div class="grid-containers">
                 <div class="menu-container">
-                 <h3>Ramas</h3>
-                 <p>Usa ramas para desarrollar nuevas funcionalidades sin afectar la rama principal.</p>
+                    <h3>Ramas</h3>
+                    <p>Usa ramas para desarrollar nuevas funcionalidades sin afectar la rama principal.</p>
                 </div>
                 <div class="menu-container">
-                  <h3>Commits</h3>
-                  <p>Haz commits frecuentes con mensajes claros para llevar un historial limpio.</p>
+                    <h3>Commits</h3>
+                    <p>Haz commits frecuentes con mensajes claros para llevar un historial limpio.</p>
                 </div>
                 <div class="menu-container">
-                 <h3>Pull Requests</h3>
-                 <p>Integra cambios en la rama principal mediante pull requests revisadas.</p>
+                    <h3>Pull Requests</h3>
+                    <p>Integra cambios en la rama principal mediante pull requests revisadas.</p>
                 </div>
                 <div class="menu-container">
-                  <h3>Resolución de Conflictos</h3>
-                  <p>Resuelve los conflictos de fusión revisando cuidadosamente los cambios.</p>
+                    <h3>Resolución de Conflictos</h3>
+                    <p>Resuelve los conflictos de fusión revisando cuidadosamente los cambios.</p>
                 </div>
             </div>
-        </main>
 
+            <!-- Comandos básicos -->
+            <section>
+                <h3>Comandos Básicos de Git</h3>
+                
+                <div class="command-card">
+                    <h4>Inicializar un repositorio</h4>
+                    <p><code>git init</code> - Crea un nuevo repositorio Git en el directorio actual</p>
+                </div>
+                
+                <div class="command-card">
+                    <h4>Clonar un repositorio</h4>
+                    <p><code>git clone [url]</code> - Descarga un repositorio existente desde una URL</p>
+                </div>
+                
+                <div class="command-card">
+                    <h4>Añadir cambios al staging</h4>
+                    <p><code>git add [archivo]</code> - Añade un archivo específico al área de staging</p>
+                    <p><code>git add .</code> - Añade todos los archivos modificados al área de staging</p>
+                </div>
+                
+                <div class="command-card">
+                    <h4>Crear un commit</h4>
+                    <p><code>git commit -m "mensaje descriptivo"</code> - Guarda los cambios en el historial con un mensaje</p>
+                </div>
+                
+                <div class="command-card">
+                    <h4>Subir cambios al repositorio remoto</h4>
+                    <p><code>git push [alias] [rama]</code> - Envía los commits locales al repositorio remoto</p>
+                </div>
+            </section>
+
+            <!-- Flujo de trabajo -->
+            <section class="workflow-section">
+                <h3>Flujo de Trabajo con Ramas</h3>
+                <p>Un buen flujo de trabajo con ramas es esencial para el desarrollo colaborativo. Estas son algunas estrategias comunes:</p>
+                
+                <h4>Git Flow</h4>
+                <p>Estrategia que define tipos de ramas específicos con propósitos definidos:</p>
+                <ul>
+                    <li><strong>main/master</strong>: Rama principal con el código de producción</li>
+                    <li><strong>develop</strong>: Rama de integración para features completados</li>
+                    <li><strong>feature/</strong>: Ramas para nuevas funcionalidades</li>
+                    <li><strong>release/</strong>: Ramas para preparar nuevas versiones</li>
+                    <li><strong>hotfix/</strong>: Ramas para correcciones urgentes en producción</li>
+                </ul>
+                
+                <div class="branch-visual">
+                    <div class="branch-line">
+                        <div class="branch-node"></div>
+                        <div class="branch-label">main</div>
+                    </div>
+                    <div class="branch-line">
+                        <div class="branch-node"></div>
+                        <div class="branch-label">develop</div>
+                    </div>
+                    <div class="branch-line">
+                        <div class="branch-node"></div>
+                        <div class="branch-label">feature/x</div>
+                    </div>
+                    <div class="branch-line">
+                        <div class="branch-node"></div>
+                        <div class="branch-label">hotfix/y</div>
+                    </div>
+                </div>
+                
+                <h4>GitHub Flow</h4>
+                <p>Flujo más simple centrado en deployments continuos:</p>
+                <ol>
+                    <li>Crear una rama desde main para cualquier cambio</li>
+                    <li>Hacer commits regularmente con mensajes descriptivos</li>
+                    <li>Abrir un Pull Request para discusión y revisión</li>
+                    <li>Desplegar para testing una vez aprobado</li>
+                    <li>Fusionar con la rama principal</li>
+                </ol>
+            </section>
+
+            <!-- Buenas prácticas -->
+            <section>
+                <h3>Buenas Prácticas con Git</h3>
+                
+                <div class="best-practice">
+                    <h4>Commits Atómicos</h4>
+                    <p>Cada commit debe contener cambios relacionados con una única funcionalidad o corrección. Esto facilita la revisión de código y el revertir cambios específicos si es necesario.</p>
+                </div>
+                
+                <div class="best-practice">
+                    <h4>Mensajes de Commit Claros</h4>
+                    <p>Usa el formato convencional para mensajes de commit:</p>
+                    <div class="code-example">
+                        <pre>
+&lt;tipo&gt;: &lt;asunto&gt;
+
+[descripción opcional]
+
+[pie opcional]</pre>
+                    </div>
+                    <p>Ejemplo: <code>feat: añadir autenticación con Google</code></p>
+                </div>
+                
+                <div class="best-practice">
+                    <h4>Mantener el Historial Limpio</h4>
+                    <p>Antes de fusionar ramas, considera usar <code>git rebase</code> para reorganizar y limpiar tus commits, creando un historial más coherente y fácil de seguir.</p>
+                </div>
+            </section>
+
+            <!-- Resolución de conflictos -->
+            <section>
+                <h3>Resolución de Conflictos</h3>
+                <p>Los conflictos ocurren cuando Git no puede fusionar cambios automáticamente. Para resolverlos:</p>
+                
+                <ol>
+                    <li>Identifica los archivos conflictivos con <code>git status</code></li>
+                    <li>Abre cada archivo y busca los marcadores de conflicto (<<<<<<<, =======, >>>>>>>)</li>
+                    <li>Decide qué cambios mantener y elimina los marcadores</li>
+                    <li>Añade los archivos resueltos con <code>git add</code></li>
+                    <li>Completa la fusión con <code>git commit</code></li>
+                </ol>
+                
+                <div class="code-example">
+                    <pre>
+// Ejemplo de conflicto en un archivo
+<<<<<<< HEAD
+console.log("Hola desde la rama actual");
+=======
+console.log("Hola desde la otra rama");
+>>>>>>> otra-rama</pre>
+                </div>
+            </section>
+
+            <!-- Comparación entre sistemas -->
+            <section>
+                <h3>Comparación entre Sistemas de Control de Versiones</h3>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Git</th>
+                            <th>SVN</th>
+                            <th>Mercurial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Arquitectura</td>
+                            <td>Distribuida</td>
+                            <td>Centralizada</td>
+                            <td>Distribuida</td>
+                        </tr>
+                        <tr>
+                            <td>Velocidad</td>
+                            <td>Muy rápida</td>
+                            <td>Moderada</td>
+                            <td>Rápida</td>
+                        </tr>
+                        <tr>
+                            <td>Rendimiento con grandes repositorios</td>
+                            <td>Excelente</td>
+                            <td>Regular</td>
+                            <td>Bueno</td>
+                        </tr>
+                        <tr>
+                            <td>Curva de aprendizaje</td>
+                            <td>Moderada</td>
+                            <td>Baja</td>
+                            <td>Baja</td>
+                        </tr>
+                        <tr>
+                            <td>Comunidad y adopción</td>
+                            <td>Muy grande</td>
+                            <td>Grande</td>
+                            <td>Mediana</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Recursos adicionales -->
+            <section>
+                <h3>Recursos Adicionales</h3>
+                <ul>
+                    <li><a href="https://git-scm.com/doc">Documentación oficial de Git</a></li>
+                    <li><a href="https://www.atlassian.com/git/tutorials">Tutoriales de Git de Atlassian</a></li>
+                    <li><a href="https://github.com/">GitHub - Plataforma de hosting de repositorios Git</a></li>
+                    <li><a href="https://about.gitlab.com/">GitLab - Plataforma completa de DevOps</a></li>
+                    <li><a href="https://ohmygit.org/">Oh My Git! - Juego para aprender Git</a></li>
+                </ul>
+            </section>
+        </main>
     </div>
+
+    <footer>
+        <p>Manual Digital de Buenas Prácticas - Control de Versiones con Git</p>
+    </footer>
 </body>
 </html>

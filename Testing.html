@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing - Manual de Buenas Prácticas</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+        
+        /* Contenido principal */
+        main {
+            background: white;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #c0392b;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+        }
+        
+        h2 {
+            color: #c0392b;
+            margin: 25px 0 15px;
+        }
+        
+        h3 {
+            color: #e74c3c;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Listas */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Citas y referencias */
+        .quote {
+            background: #f9f9f9;
+            border-left: 4px solid #e74c3c;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .reference {
+            padding-left: 30px;
+            text-indent: -30px;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        
+        /* Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #c0392b;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* Tarjetas de información */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            flex: 1 1 300px;
+            background: #fdedec;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h3 {
+            color: #c0392b;
+            margin-top: 0;
+        }
+        
+        /* Código */
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* Figura */
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 4px;
+        }
+        
+        .caption {
+            font-style: italic;
+            margin-top: 8px;
+            color: #666;
+        }
+        
+        /* Comparación */
+        .comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .comparison-item {
+            flex: 1 1 45%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+        
+        /* Buenas vs Malas prácticas */
+        .good-practice {
+            border-left: 4px solid #27ae60;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        .bad-practice {
+            border-left: 4px solid #7f8c8d;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        /* Pirámide de testing */
+        .testing-pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .pyramid-level {
+            width: 80%;
+            padding: 20px;
+            margin: 5px 0;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Pie de página */
+        footer {
+            background: #c0392b;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-nav {
+            margin: 15px 0;
+        }
+        
+        .footer-nav a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .comparison {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Manual de Buenas Prácticas</div>
+            <nav>
+                <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="controlVersiones.html">Control de Versiones</a></li>
+                <li><a href="seccMetAgiles.html">Metodologías Ágiles</a></li>
+                <li><a href="DocumentacionDeCodigo.html">Documentación de Código</a></li>
+                <li><a href="BuenasPracticas.html">Buenas Practicas</a></li>
+                <li><a href="Testing.html">Testing</a></li>
+                <li><a href="TrabajoEnGrupo.html">Trabajo en Equipo</a></li>
+                <li><a href="recursos-adicionales.html">Recursos Adicionales</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <h1>Testing: Importancia de las Pruebas</h1>
+            
+            <p>El testing o pruebas de software es un proceso esencial en el desarrollo que permite verificar que el software funciona correctamente, cumple con los requisitos y está libre de defectos. Esta sección cubre los fundamentos, tipos y mejores prácticas de testing.</p>
+            
+            <div class="quote">
+                "Las pruebas no solo encuentran errores, sino que también previenen su reintroducción. El código no testeado es código roto por diseño." - Kent Beck
+            </div>
+            
+            <h2>Importancia del Testing</h2>
+            <p>El testing es crucial por múltiples razones:</p>
+            <ul>
+                <li>Detecta errores y defectos antes de que lleguen a producción</li>
+                <li>Asegura que el software cumple con los requisitos especificados</li>
+                <li>Mejora la calidad y confiabilidad del producto</li>
+                <li>Reduce costos al encontrar problemas temprano en el desarrollo</li>
+                <li>Proporciona confianza para realizar cambios y refactorizaciones</li>
+                <li>Documenta el comportamiento esperado del sistema</li>
+            </ul>
+            
+            <h2>Pirámide de Testing</h2>
+            <p>La pirámide de testing es un modelo que ilustra la distribución ideal de los diferentes tipos de pruebas:</p>
+            
+            <div class="testing-pyramid">
+                <div class="pyramid-level" style="background: #e74c3c; width: 20%;">Pruebas E2E<br>(UI Tests)</div>
+                <div class="pyramid-level" style="background: #e67e22; width: 40%;">Pruebas de Integración<br>(Integration Tests)</div>
+                <div class="pyramid-level" style="background: #27ae60; width: 60%;">Pruebas Unitarias<br>(Unit Tests)</div>
+            </div>
+            
+            <h2>Tipos de Testing</h2>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Pruebas Unitarias</h3>
+                    <p>Prueban componentes individuales en aislamiento. Son rápidas y específicas.</p>
+                    <ul>
+                        <li>Prueban funciones o métodos individuales</li>
+                        <li>Usan mocks y stubs para aislar el código</li>
+                        <li>Ejecución muy rápida</li>
+                        <li>Base de la pirámide de testing</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Pruebas de Integración</h3>
+                    <p>Verifican que múltiples componentes trabajen correctamente together.</p>
+                    <ul>
+                        <li>Prueban la interacción entre módulos</li>
+                        <li>Involucran bases de datos y servicios externos</li>
+                        <li>Más lentas que las unitarias</li>
+                        <li>Detectan problemas de integración</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Pruebas E2E (End-to-End)</h3>
+                    <p>Simulan el comportamiento del usuario en la aplicación completa.</p>
+                    <ul>
+                        <li>Prueban flujos completos de usuario</li>
+                        <li>Muy lentas y frágiles</li>
+                        <li>Mayor cobertura pero menor especificidad</li>
+                        <li>Cúspide de la pirámide de testing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Frameworks de Testing Populares</h2>
+            <table>
+                <tr>
+                    <th>Tecnología</th>
+                    <th>Framework</th>
+                    <th>Tipo</th>
+                    <th>Características</th>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Jest</td>
+                    <td>Unitario/Integración</td>
+                    <td>Configuración cero, snapshots, cobertura</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Cypress</td>
+                    <td>E2E</td>
+                    <td>Tiempo real, debugging fácil</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>pytest</td>
+                    <td>Unitario/Integración</td>
+                    <td>Sintaxis simple, plugins</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>JUnit</td>
+                    <td>Unitario</td>
+                    <td>Estándar industry, anotaciones</td>
+                </tr>
+            </table>
+            
+            <h2>Ejemplo de Prueba Unitaria</h2>
+            <p>Aquí un ejemplo simple de una prueba unitaria con Jest para JavaScript:</p>
+            
+            <pre>
+// math.js
+function sumar(a, b) {
+    return a + b;
+}
+
+module.exports = { sumar };
+
+// math.test.js
+const { sumar } = require('./math');
+
+test('suma 1 + 2 debe ser igual a 3', () => {
+    expect(sumar(1, 2)).toBe(3);
+});
+
+test('suma de números negativos', () => {
+    expect(sumar(-1, -2)).toBe(-3);
+});
+
+test('suma con cero', () => {
+    expect(sumar(5, 0)).toBe(5);
+});
+            </pre>
+            
+            <h2>Beneficios del TDD (Test-Driven Development)</h2>
+            <p>El Desarrollo Guiado por Pruebas es una metodología que ofrece numerosos beneficios:</p>
+            
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h3>✅ Ventajas del TDD</h3>
+                    <ul>
+                        <li>Mejor diseño del código (low coupling)</li>
+                        <li>Detección temprana de errores</li>
+                        <li>Documentación viva del código</li>
+                        <li>Refactorización segura</li>
+                        <li>Mayor confianza en el código</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <h3>🔄 Proceso TDD</h3>
+                    <ol>
+                        <li>Escribir una prueba fallida (RED)</li>
+                        <li>Escribir código mínimo para pasar la prueba (GREEN)</li>
+                        <li>Refactorizar el código (REFACTOR)</li>
+                        <li>Repetir el ciclo</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <h2>Métricas de Calidad</h2>
+            <p>Las métricas ayudan a medir la efectividad de las pruebas:</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Cobertura de Código</h3>
+                    <p>Porcentaje de código ejecutado por las pruebas.</p>
+                    <ul>
+                        <li>80-90% es generalmente considerado buen</li>
+                        <li>100% no siempre es práctico o útil</li>
+                        <li>Métrica útil pero no suficiente por sí sola</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Detección de Defectos</h3>
+                    <p>Capacidad de las pruebas para encontrar bugs.</p>
+                    <ul>
+                        <li>Número de bugs encontrados vs. escapados</li>
+                        <li>Tiempo promedio de detección</li>
+                        <li>Costo de fix por etapa de detección</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Velocidad de Ejecución</h3>
+                    <p>Tiempo que toma ejecutar el suite de pruebas.</p>
+                    <ul>
+                        <li>Pruebas unitarias: segundos</li>
+                        <li>Pruebas de integración: minutos</li>
+                        <li>Pruebas E2E: decenas de minutos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2>Referencias</h2>
+            <div class="reference">Beck, K. (2002). Test-Driven Development: By Example. Addison-Wesley.</div>
+            <div class="reference">Fowler, M. (2007). Mocks Aren't Stubs. Recuperado de https://martinfowler.com/articles/mocksArentStubs.html</div>
+            <div class="reference">Meszaros, G. (2007). xUnit Test Patterns: Refactoring Test Code. Addison-Wesley.</div>
+            <div class="reference">Osherove, R. (2013). The Art of Unit Testing: With Examples in .NET. Manning Publications.</div>
+            <div class="reference">Martin, R. C. (2008). Clean Code: A Handbook of Agile Software Craftsmanship. Prentice Hall.</div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2025 - Equipo de Desarrollo de Software V - Universidad Tecnológica de Panamá</p>
+            <div class="footer-nav">
+                <a href="index.html">Inicio</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="recursos-adicionales.html">Recursos Adicionales</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

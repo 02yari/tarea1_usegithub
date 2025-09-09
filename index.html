@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Digital de Buenas Prácticas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Manual Digital de Buenas Prácticas</h1>
+        <p class="tagline">Tu guía completa para el desarrollo de software profesional</p>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="controlVersiones.html">Control de Versiones</a></li>
+                <li><a href="seccMetAgiles.html">Metodologías Ágiles</a></li>
+                <li><a href="DocumentacionDeCodigo.html">Documentación de Código</a></li>
+                <li><a href="BuenasPracticas.html">Buenas Practicas</a></li>
+                <li><a href="Testing.html">Testing</a></li>
+                <li><a href="TrabajoEnGrupo.html">Trabajo en Equipo</a></li>
+                <li><a href="recursos-adicionales.html">Recursos Adicionales</a></li>
+            </ul>
+        </nav>
+
+        <main id="content" class="content">
+            <section>
+                <h2>Introducción</h2>
+                <p>Bienvenido al manual digital. Aquí aprenderás buenas prácticas en desarrollo de software.</p>
+                
+                <article class="feature">
+                    <h3>¿Por qué seguir buenas prácticas?</h3>
+                    <p>Las buenas prácticas en desarrollo de software son esenciales para crear código mantenible, escalable y de calidad. Al seguirlas, tu trabajo será:</p>
+                    <ul>
+                        <li>Más fácil de entender para otros desarrolladores</li>
+                        <li>Menos propenso a errores y bugs</li>
+                        <li>Más sencillo de modificar y extender</li>
+                        <li>Más eficiente en su ejecución</li>
+                        <li>Más seguro frente a vulnerabilidades</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section>
+                <h2>Principios Fundamentales</h2>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <h3>DRY</h3>
+                        <p>Don't Repeat Yourself: Evita la duplicación de código. Cada pieza de conocimiento debe tener una representación única en el sistema.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>KISS</h3>
+                        <p>Keep It Simple, Stupid: La simplicidad debe ser objetivo clave en el diseño. Evita complejidad innecesaria.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>YAGNI</h3>
+                        <p>You Aren't Gonna Need It: No implementes funcionalidades hasta que sean realmente necesarias.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Consejos Rápidos</h2>
+                
+                <div class="tips">
+                    <div class="tip">
+                        <h4>Nomenclatura Significativa</h4>
+                        <p>Usa nombres descriptivos para variables, funciones y clases. Un buen nombre explica la intención.</p>
+                        <pre><code>// Mal
+let x = 10;
+function proc() { ... }
+
+// Bien
+let userCount = 10;
+function processUserData() { ... }</code></pre>
+                    </div>
+                    
+                    <div class="tip">
+                        <h4>Funciones Cortas</h4>
+                        <p>Las funciones deberían hacer una sola cosa y hacerla bien. Si una función supera las 20 líneas, considera dividirla.</p>
+                    </div>
+                    
+                    <div class="tip">
+                        <h4>Comentarios Útiles</h4>
+                        <p>Comenta el "porqué", no el "qué". El código ya muestra lo que hace, pero a veces necesita explicar por qué se hizo de cierta manera.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Checklist de Revisiones</h2>
+                
+                <form class="checklist">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check1">
+                        <label for="check1">¿El código sigue los estándares de formato?</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check2">
+                        <label for="check2">¿Los nombres son descriptivos y significativos?</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check3">
+                        <label for="check3">¿Existe documentación para partes complejas?</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check4">
+                        <label for="check4">¿Se han eliminado bloques de código comentados?</label>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check5">
+                        <label for="check5">¿Se han manejado adecuadamente los errores?</label>
+                    </div>
+                </form>
+            </section>
+
+            <section>
+                <h2>Próximos Pasos</h2>
+                
+                <div class="next-steps">
+                    <p>Explora las diferentes secciones de este manual para profundizar en cada tema:</p>
+                    
+                    <ol>
+                        <li>Aprende sobre <a href="controlVersiones.html">Control de Versiones</a> con Git</li>
+                        <li>Descubre las <a href="seccMetAgiles.html">Metodologías Ágiles</a> más populares</li>
+                        <li>Mejora tu <a href="DocumentacionDeCodigo.html">Documentación de Código</a></li>
+                        <li>Profundiza en <a href="Testing.html">Testing</a> y pruebas automatizadas</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Manual Digital de Buenas Prácticas - Recursos para desarrolladores</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

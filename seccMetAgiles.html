@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologías Ágiles - Manual Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Manual Digital de Buenas Prácticas</h1>
+        <p class="tagline">Dominando las metodologías ágiles para el desarrollo eficiente</p>
+    </header>
+
+    <div class="container">
+        <!-- Barra lateral -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="controlVersiones.html">Control de Versiones</a></li>
+                <li><a href="seccMetAgiles.html">Metodologías Ágiles</a></li>
+                <li><a href="DocumentacionDeCodigo.html">Documentación de Código</a></li>
+                <li><a href="BuenasPracticas.html">Buenas Practicas</a></li>
+                <li><a href="Testing.html">Testing</a></li>
+                <li><a href="TrabajoEnGrupo.html">Trabajo en Equipo</a></li>
+                <li><a href="recursos-adicionales.html">Recursos Adicionales</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="content">
+            <h2>Metodologías Ágiles</h2>
+            <p>Las metodologías ágiles son un enfoque flexible para la gestión de proyectos de software que busca entregar valor rápido y adaptarse a los cambios.</p>
+
+            <section class="intro-section">
+                <h3>¿Qué son las metodologías ágiles?</h3>
+                <p>Las metodologías ágiles surgieron como respuesta a los modelos tradicionales de desarrollo en cascada, que resultaban demasiado rígidos para entornos cambiantes. El <strong>Manifiesto Ágil</strong>, publicado en 2001, estableció los principios fundamentales:</p>
+                
+                <div class="manifesto-principles">
+                    <div class="principle-card">
+                        <h4>Individuos e interacciones</h4>
+                        <p>sobre procesos y herramientas</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Software funcionando</h4>
+                        <p>sobre documentación extensiva</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Colaboración con el cliente</h4>
+                        <p>sobre negociación contractual</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Respuesta ante el cambio</h4>
+                        <p>sobre seguir un plan</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="agile-container">
+                <!-- Scrum -->
+                <div class="agile-card">
+                    <h3>Scrum</h3>
+                    <p><strong>Descripción:</strong> Scrum organiza el desarrollo en ciclos cortos llamados sprints.</p>
+                    <p><strong>Roles:</strong> Product Owner, Scrum Master, Equipo de Desarrollo.</p>
+                    <p><strong>Eventos:</strong> Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective.</p>
+                    
+                    <div class="additional-info">
+                        <h4>Artefactos de Scrum</h4>
+                        <ul>
+                            <li><strong>Product Backlog:</strong> Lista priorizada de funcionalidades</li>
+                            <li><strong>Sprint Backlog:</strong> Tareas seleccionadas para el sprint actual</li>
+                            <li><strong>Incremento:</strong> Producto funcionando al final de cada sprint</li>
+                        </ul>
+                        
+                        <h4>Duración del Sprint</h4>
+                        <p>Generalmente entre 1-4 semanas, siendo 2 semanas lo más común.</p>
+                    </div>
+                </div>
+
+                <!-- Kanban -->
+                <div class="agile-card">
+                    <h3>Kanban</h3>
+                    <p><strong>Descripción:</strong> Kanban usa un tablero visual para gestionar el flujo de trabajo.</p>
+                    <p><strong>Principios:</strong> Visualizar el flujo, limitar el trabajo en curso, mejorar continuamente.</p>
+                    <p><strong>Ventajas:</strong> Identifica cuellos de botella y optimiza el flujo de tareas.</p>
+                    
+                    <div class="additional-info">
+                        <h4>Columnas típicas de un tablero Kanban</h4>
+                        <ul>
+                            <li>Por hacer (To Do)</li>
+                            <li>En progreso (In Progress)</li>
+                            <li>En revisión (In Review)</li>
+                            <li>Terminado (Done)</li>
+                        </ul>
+                        
+                        <h4>Métricas importantes</h4>
+                        <ul>
+                            <li><strong>Lead Time:</strong> Tiempo desde la solicitud hasta la finalización</li>
+                            <li><strong>Cycle Time:</strong> Tiempo que toma completar una tarea</li>
+                            <li><strong>WIP (Work In Progress):</strong> Tareas simultáneas limitadas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Otras metodologías -->
+            <section class="other-methodologies">
+                <h3>Otras Metodologías Ágiles</h3>
+                
+                <div class="methodology-grid">
+                    <div class="methodology-item">
+                        <h4>XP (eXtreme Programming)</h4>
+                        <p>Enfocada en la calidad del código mediante prácticas como programación en parejas, desarrollo guiado por pruebas (TDD) e integración continua.</p>
+                    </div>
+                    
+                    <div class="methodology-item">
+                        <h4>Lean Software Development</h4>
+                        <p>Basado en principios de manufactura esbelta, busca eliminar desperdicios y optimizar el flujo de valor al cliente.</p>
+                    </div>
+                    
+                    <div class="methodology-item">
+                        <h4>Crystal</h4>
+                        <p>Conjunto de metodologías adaptables según el tamaño del equipo y criticidad del proyecto, centrándose en la comunicación.</p>
+                    </div>
+                    
+                    <div class="methodology-item">
+                        <h4>DSDM (Dynamic Systems Development Method)</h4>
+                        <p>Proporciona un framework para entregas rápidas con foco en el negocio, frecuentes entregas y colaboración activa del usuario.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparativa -->
+            <section class="comparison">
+                <h3>Comparativa entre metodologías</h3>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metodología</th>
+                                <th>Mejor para</th>
+                                <th>Dificultad de implementación</th>
+                                <th>Enfoque principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Scrum</td>
+                                <td>Proyectos con requisitos cambiantes</td>
+                                <td>Media</td>
+                                <td>Gestión de proyectos</td>
+                            </tr>
+                            <tr>
+                                <td>Kanban</td>
+                                <td>Mantenimiento y mejora continua</td>
+                                <td>Baja</td>
+                                <td>Visualización y flujo de trabajo</td>
+                            </tr>
+                            <tr>
+                                <td>XP</td>
+                                <td>Proyectos con alta calidad requerida</td>
+                                <td>Alta</td>
+                                <td>Prácticas técnicas</td>
+                            </tr>
+                            <tr>
+                                <td>Lean</td>
+                                <td>Optimización de procesos existentes</td>
+                                <td>Media-Alta</td>
+                                <td>Eliminación de desperdicios</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Consejos de implementación -->
+            <section class="implementation-tips">
+                <h3>Consejos para implementar metodologías ágiles</h3>
+                
+                <div class="tips-container">
+                    <div class="tip">
+                        <h4>1. Comienza con lo esencial</h4>
+                        <p>No intentes implementar todas las prácticas a la vez. Selecciona las más importantes para tu contexto.</p>
+                    </div>
+                    
+                    <div class="tip">
+                        <h4>2. Adapta, no adoptes</h4>
+                        <p>Personaliza la metodología según las necesidades de tu equipo y organización.</p>
+                    </div>
+                    
+                    <div class="tip">
+                        <h4>3. Capacita al equipo</h4>
+                        <p>Asegúrate de que todos comprenden los principios y prácticas ágiles.</p>
+                    </div>
+                    
+                    <div class="tip">
+                        <h4>4. Mide y ajusta</h4>
+                        <p>Establece métricas para evaluar el progreso y realiza ajustes continuos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Casos de uso -->
+            <section class="use-cases">
+                <h3>¿Cuándo usar cada metodología?</h3>
+                
+                <div class="use-case">
+                    <h4>Scrum es ideal cuando:</h4>
+                    <ul>
+                        <li>Los requisitos cambian frecuentemente</li>
+                        <li>Necesitas entregas incrementales regulares</li>
+                        <li>El equipo puede autoorganizarse</li>
+                        <li>Existe un Product Owner comprometido</li>
+                    </ul>
+                </div>
+                
+                <div class="use-case">
+                    <h4>Kanban funciona mejor cuando:</h4>
+                    <ul>
+                        <li>Tienes flujos de trabajo impredecibles</li>
+                        <li>Necesitas visualizar el trabajo en proceso</li>
+                        <li>Quieres identificar y eliminar cuellos de botella</li>
+                        <li>Prefieres cambios evolutivos en lugar de revolucionarios</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>Manual Digital de Buenas Prácticas - Metodologías Ágiles</p>
+    </footer>
+</body>
+</html>
